@@ -1,0 +1,238 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * AI Lab design system — dark technical console.
+ * All colors in oklch, exposed as semantic tokens.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-grid: var(--grid);
+  --color-rag: var(--rag);
+  --color-agent: var(--agent);
+  --color-signal: var(--signal);
+  --color-warn: var(--warn);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.16 0.014 264);
+  --foreground: oklch(0.95 0.005 260);
+  --surface: oklch(0.2 0.016 264);
+  --surface-2: oklch(0.24 0.018 264);
+  --card: oklch(0.2 0.016 264);
+  --card-foreground: oklch(0.95 0.005 260);
+  --popover: oklch(0.22 0.017 264);
+  --popover-foreground: oklch(0.95 0.005 260);
+  --primary: oklch(0.78 0.14 192);
+  --primary-foreground: oklch(0.17 0.02 220);
+  --secondary: oklch(0.27 0.02 264);
+  --secondary-foreground: oklch(0.93 0.005 260);
+  --muted: oklch(0.25 0.018 264);
+  --muted-foreground: oklch(0.68 0.02 260);
+  --accent: oklch(0.7 0.16 295);
+  --accent-foreground: oklch(0.16 0.02 290);
+  --destructive: oklch(0.65 0.2 22);
+  --destructive-foreground: oklch(0.98 0.005 260);
+  --border: oklch(0.31 0.02 264);
+  --input: oklch(0.3 0.02 264);
+  --ring: oklch(0.78 0.14 192);
+  --grid: oklch(0.26 0.018 264);
+  --rag: oklch(0.78 0.14 192);
+  --agent: oklch(0.72 0.16 300);
+  --signal: oklch(0.78 0.17 150);
+  --warn: oklch(0.82 0.15 80);
+  --chart-1: oklch(0.78 0.14 192);
+  --chart-2: oklch(0.72 0.16 300);
+  --chart-3: oklch(0.78 0.17 150);
+  --chart-4: oklch(0.82 0.15 80);
+  --chart-5: oklch(0.7 0.18 20);
+  --sidebar: oklch(0.18 0.015 264);
+  --sidebar-foreground: oklch(0.93 0.005 260);
+  --sidebar-primary: oklch(0.78 0.14 192);
+  --sidebar-primary-foreground: oklch(0.17 0.02 220);
+  --sidebar-accent: oklch(0.25 0.018 264);
+  --sidebar-accent-foreground: oklch(0.93 0.005 260);
+  --sidebar-border: oklch(0.3 0.02 264);
+  --sidebar-ring: oklch(0.78 0.14 192);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(
+        ellipse 80% 50% at 50% -10%,
+        oklch(0.78 0.14 192 / 0.09),
+        transparent 70%
+      ),
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      48px 48px,
+      48px 48px;
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+
+  code,
+  pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@utility panel {
+  background-color: color-mix(in oklab, var(--surface) 88%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(6px);
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility glow-rag {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--rag) 45%, transparent),
+    0 0 28px -6px color-mix(in oklab, var(--rag) 55%, transparent);
+}
+
+@utility glow-agent {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--agent) 45%, transparent),
+    0 0 28px -6px color-mix(in oklab, var(--agent) 55%, transparent);
+}
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+@keyframes travel-y {
+  0% {
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(26px);
+    opacity: 0;
+  }
+}
+
+@keyframes travel-x {
+  0% {
+    transform: translateX(-6px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(26px);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-travel-y {
+  animation: travel-y 1.4s ease-in-out infinite;
+}
+.animate-travel-x {
+  animation: travel-x 1.4s ease-in-out infinite;
+}
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-travel-y,
+  .animate-travel-x,
+  .animate-pulse-soft {
+    animation: none;
+  }
+}
